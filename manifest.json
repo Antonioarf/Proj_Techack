@@ -1,0 +1,33 @@
+{
+
+    "manifest_version": 2,
+    "name": "Projeto-Techack",
+    "version": "1.0",
+  
+    "description": "Projeto-Techack",
+  
+    "icons": {
+      "48": "src/img/logo.png"
+    },
+
+    "browser_action": {
+        "default_icon": "src/img/logo.png",
+        "default_title": "Projeto-Techack",
+        "default_popup": "src/popup.html"
+    },
+
+    "permissions": [
+        "tabs",
+        "cookies",
+        "<all_urls>",
+        "storage"
+    ],
+  
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["src/main.js"]
+      }
+    ]
+  
+  }
