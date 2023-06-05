@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        .name{
+            text-align: center;
+            margin-top: 50px;
+            
+        }
+        .sub-title{
+            text-align: center;
+            /* margin-top: 50px; */
+        }
+        .text-section{
+            text-align: center;
+            /* margin-top: 50px; */
+        }
+        body {
+            font-family: sans-serif;
+            color: #383838;
+        }
+    </style>
+    <body>
+        <div class="name"><h1>Security Risks</h1></div>
+
+        <h2 class="sub-title" id="score"></h2>
+        <h2 class="sub-title" id="LocalS"></h2>
+        <h2 class="sub-title" id="SessionS"></h2>
+        <h2 class="sub-title" id="Connect"></h2>
+
+        <h2 class="sub-title" id="cookie-master">Cookies</h2>
+        <div class="text-section" id="cookies-first-party-amount"></div>
+        <div class="text-section" id="cookies-third-party-amount"></div>
+        <div class="text-section" id="cookies-navigation-amount"></div>
+
+        <script src="main.js"></script>
+        <script src="getCookies.js"></script>
+        <script src="getConnections.js"></script>
+        <script src="getlocalStorage.js"></script>
+        <script src="getSessionStorage.js"></script>
+       
+
+    </body>
+    
+</html>

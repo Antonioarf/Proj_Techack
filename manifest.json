@@ -13,7 +13,7 @@
     "browser_action": {
         "default_icon": "src/img/logo.png",
         "default_title": "Projeto-Techack",
-        "default_popup": "src/popup.html"
+        "default_popup": "src/main.html"
     },
 
     "permissions": [

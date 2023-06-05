@@ -1,14 +1,4 @@
-function getActiveTab() {
-    return browser.tabs.query({ currentWindow: true, active: true });
-  }
-  
-  function documentFiller(htmlId, htmlText, value) {
-    let documentElement = document.getElementById(htmlId);
-    let text = document.createTextNode(htmlText + value);
-    documentElement.appendChild(text);
-  }
-  
-  function showCookies(tabs) {
+function main(tabs) {
     let tab = tabs.pop();
   
     let firstPartyAmount = 0;
@@ -26,29 +16,26 @@ function getActiveTab() {
             : thirdPartyAmount++;
           cookie.session != undefined ? sessionAmount++ : navigationAmount++;
         }
-  
-        documentFiller("cookies-amount", "Cookies: ", cookies.length);
-  
-        documentFiller(
-          "cookies-first-party-amount",
-          "First party cookies: ",
-          firstPartyAmount
-        );
-  
-        documentFiller(
-          "cookies-third-party-amount",
-          "Third party cookies: ",
-          thirdPartyAmount
-        );
-  
-        documentFiller(
-          "cookies-navigation-amount",
-          "Navigation cookies: ",
-          navigationAmount
-        );
+        let total_element = document.getElementById('cookie-master');
+        total_element.innerHTML ="Total Cookies: "+ cookies.length;
+
+        let firts_element = document.getElementById('cookies-first-party-amount');
+        firts_element.innerHTML ="First party: "+ firstPartyAmount;
+        let third_element = document.getElementById('cookies-third-party-amount');
+        third_element.innerHTML ="Third party: "+ thirdPartyAmount;
+        let navigation_element = document.getElementById('cookies-navigation-amount');
+        navigation_element.innerHTML ="Navigation: "+ navigationAmount;
+      }
+      else {
+        let total_element = document.getElementById('cookie-master');
+        total_element.innerHTML ="Cookies: ";
+        let firts_element = document.getElementById('cookies-first-party-amount');
+        firts_element.innerHTML ="No cookies found";
+
+
       }
     });
 
   }
   
-  getActiveTab().then(showCookies);
+  browser.tabs.query({ currentWindow: true, active: true }).then(main);

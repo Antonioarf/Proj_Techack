@@ -7,7 +7,7 @@ async function getSessionStorage(tabs){
     const tab = tabs.pop();
     const listenners = await browser.tabs.sendMessage(tab.id, {method: "sessionStorage"});
     var score_session= document.getElementById('SessionS');
-    score_session.innerHTML =  listenners.data.length;
+    score_session.innerHTML = 'Storage Session: ' + listenners.data.length;
     console.log("SessionStorage executed!");
 
     return listenners
